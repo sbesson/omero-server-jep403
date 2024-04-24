@@ -1,0 +1,35 @@
+---
+version: "3"
+
+services:
+  pg:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: omero
+      POSTGRES_PASSWORD: omero
+    volumes:
+      - "database:/var/lib/postgresql/data"
+
+  jdk11:
+    build:
+      context: ./jdk11
+    tty: true
+    volumes:
+      - ./jdk11/omero:/OMERO
+
+  jdk17:
+    build:
+      context: ./jdk17
+    tty: true
+    volumes:
+      - ./jdk17/omero:/OMERO
+
+  jdk21:
+    build:
+      context: ./jdk21
+    tty: true
+    volumes:
+      - ./jdk21/omero:/OMERO
+
+volumes:
+  database:
