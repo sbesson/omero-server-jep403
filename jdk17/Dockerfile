@@ -4,7 +4,6 @@ FROM ubuntu:22.04
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt update && \
     apt -y install \
-    git \
     openjdk-17-jdk \
     wget \
     unzip
@@ -31,8 +30,8 @@ RUN chown omero:omero /OMERO
 USER omero
 WORKDIR /opt/omero
 RUN wget https://github.com/ome/openmicroscopy/releases/download/v5.6.10/OMERO.server-5.6.10-ice36.zip && \
-  unzip OMERO.server-5.6.10-ice36.zip && rm OMERO.server-5.6.10-ice36.zip
-RUN ln -sf OMERO.server-5.6.10-ice36 OMERO.current
+  unzip OMERO.server-5.6.10-ice36.zip && rm OMERO.server-5.6.10-ice36.zip && \
+  ln -sf OMERO.server-5.6.10-ice36 OMERO.current
 RUN python3 -mvenv OMERO.venv && OMERO.venv/bin/pip install -U pip wheel
 RUN OMERO.venv/bin/pip install https://github.com/glencoesoftware/zeroc-ice-py-ubuntu2204-x86_64/releases/download/20221004/zeroc_ice-3.6.5-cp310-cp310-linux_x86_64.whl
 RUN OMERO.venv/bin/pip install \
@@ -45,4 +44,3 @@ ENV PATH "/opt/ice-3.6.5/bin:$PATH"
 EXPOSE 4063 4064
 
 ADD init.sh /opt/omero/
-ADD connect.py /opt/omero/
