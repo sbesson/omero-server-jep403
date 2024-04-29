@@ -11,3 +11,9 @@ details
 
     docker compose build
     docker compose up -d
+
+
+See also:
+
+* [Migrating from JDK 8](https://docs.oracle.com/en/java/javase/17/migrate/migrating-jdk-8-later-jdk-releases.html#GUID-7BB28E4D-99B3-4078-BDC4-FC24180CE82B)
+* [JEP 403](https://openjdk.org/jeps/403)
