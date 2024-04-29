@@ -15,21 +15,24 @@ services:
       context: ./jdk11
     tty: true
     volumes:
-      - ./jdk11/omero:/OMERO
+      - jdk11:/OMERO
 
   jdk17:
     build:
       context: ./jdk17
     tty: true
     volumes:
-      - ./jdk17/omero:/OMERO
+      - jdk17:/OMERO
 
   jdk21:
     build:
       context: ./jdk21
     tty: true
     volumes:
-      - ./jdk21/omero:/OMERO
+      - jdk21:/OMERO
 
 volumes:
   database:
+  jdk11:
+  jdk17:
+  jdk21:
