@@ -11,6 +11,3 @@ psql -h pg -U omero jdk11 -f OMERO.sql
 omero config set omero.db.host pg
 omero config set omero.db.name jdk11
 omero certificates
-
-omero config get
-omero admin start

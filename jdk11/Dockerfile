@@ -44,3 +44,4 @@ ENV PATH "/opt/ice-3.6.5/bin:$PATH"
 EXPOSE 4063 4064
 
 ADD init.sh /opt/omero/
+RUN echo ". /opt/omero/OMERO.venv/bin/activate" >> .bashrc
